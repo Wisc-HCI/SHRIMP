@@ -2,13 +2,12 @@
 
 
 SHRIMP is a system that allows users to automatically generate a hierarchical robot primitive plan using
-natural language and iteratively revise their plan in simulation through re-prompting and explicit correction, before executing it on the robot.
+natural language and iteratively revise their plan in simulation through re-prompting and explicit correction, before executing it on the robot. Watch the demo video [here](https://wisc-hci.github.io/SHRIMP/).
 
 <img src="docs/static/images/teaser.png" width="800">
 
-<video src="docs/static/videos/SHRIMP_preview.mp4" controls width="600"></video>
 
-Watch the demo video [here](docs/static/videos/SHRIMP_preview.mp4).
+
 
 ## System Requirements
 This system requires 2 computers:
