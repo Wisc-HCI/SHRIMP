@@ -186,11 +186,12 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <img src="static/images/shrimp.png" class="project-logo" alt="SHRIMP logo">
+          <p class="eyebrow"><strong>S</strong>imulation-driven <strong>H</strong>uman-in-the-loop 
+            <strong>R</strong>efinement <strong>I</strong>nterface for <strong>M</strong>anipulation <strong>P</strong>lanning</h2></p>
           <h1 class="title is-1 publication-title">
             SHRIMP: Iterative Refinement of Robot Task Plans </h1>
           <h2 class="subtitle is-size-3 has-text-centered">
-            <strong>S</strong>imulation-driven <strong>H</strong>uman-in-the-loop 
-            <strong>R</strong>efinement <strong>I</strong>nterface for <strong>M</strong>anipulation <strong>P</strong>lanning</h2>
+            
           <div class="is-size-5 publication-authors">
             <span class="author-block"> <a href="https://myaschroder.com/" target="_blank">Mya Schroder</a>,</span>
             <span class="author-block"> <a href="https://yunahwang.github.io/" target="_blank">Yuna Hwang</a>,</span>
@@ -244,44 +245,21 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="has-text-centered section-intro">
-      <p class="eyebrow">The key idea</p>
-      <h2 class="title is-3">Plan with language. Verify with simulation. Refine with control.</h2>
+
+      <h2 class="title is-3">The Core Idea</h2>
       <p class="lead">
-        Language makes robot programming approachable, but an instruction can be ambiguous and an
-        LLM-generated plan can be difficult to inspect. SHRIMP keeps people in the loop by making
-        the plan visible, editable, and testable before anything moves in the real world.
+        Language makes robot programming accessible, but instructions can be ambiguous and an
+        LLM-generated plans can be difficult to validate. SHRIMP keeps people in the loop by making
+        the plan visible, editable, and testable before it executes in the real-world.
       </p>
     </div>
 
-    <div class="columns is-variable is-5 workflow-grid">
-      <div class="column">
-        <article class="workflow-card">
-          <span class="step-number">1</span>
-          <h3>Generate</h3>
-          <p>Describe a manipulation task in natural language. SHRIMP translates it into a hierarchical plan composed of robot primitives.</p>
-        </article>
-      </div>
-      <div class="column">
-        <article class="workflow-card">
-          <span class="step-number">2</span>
-          <h3>Simulate &amp; refine</h3>
-          <p>Preview the plan in simulation, then revise it through natural-language re-prompting or direct, explicit corrections.</p>
-        </article>
-      </div>
-      <div class="column">
-        <article class="workflow-card">
-          <span class="step-number">3</span>
-          <h3>Execute</h3>
-          <p>Once the simulated behavior matches the user's intent, send the validated plan to the physical robot system.</p>
-        </article>
-      </div>
-    </div>
-
+  
     <figure class="paper-figure">
       <img src="static/images/teaser.png" alt="SHRIMP workflow showing the user interface, simulated plan refinement, and physical robot execution">
       <figcaption>
-        SHRIMP connects a natural-language planning interface to a simulated robot workspace and a
-        physical bimanual manipulation system, giving users a preview-and-revise loop before execution.
+      SHRIMP allows users to automatically generate a hierarchical robot primitive plan using natural language and iteratively revise their plan in simulation through re-prompting and explicit correction, before executing
+      it on the robot.
       </figcaption>
     </figure>
   </div>
@@ -323,25 +301,24 @@
 
 
 <!-- Architecture -->
-<section class="section">
+<section class="section ">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
     <div class="column ">
-      <p class="eyebrow">System design</p>
-      <h2 class="title is-3">From user intent to robot action</h2>
+      
+      <h2 class="title is-3">System Design</h2>
       <p class="lead architecture-lead">
-        The interface coordinates planning, simulation, perception, and robot control. A hierarchical
-        representation keeps the plan understandable at the task level while grounding each step in
-        executable manipulation primitives.
+        SHRIMP coordinates planning, simulation, perception, and robot control. 
+        SHRIMP translates a user's natural-language task description and a tracked representation of the physical scene into a hierarchical robot plan. 
+        The hierarchical plan contains sequences of high-level primitives composed of parameterized low-level robot primitives. 
+        Before simulation or execution, the plan undergoes validation checks to confirm valid grasps and reduce robot-robot and robot-object collisions.
+        Users can then inspect and test the plan in a physics-based digital twin, step through individual primitives, and refine the plan through re-prompting, primitive editing, or parameter adjustment.
+        Revised plans are stored in Task History, and the final plan can be executed on the physical robot.
       </p>
 
       <figure class="paper-figure">
         <img src="static/images/architecture.png" alt="Architecture diagram of the SHRIMP interface, planning backend, simulation, perception, and robot-control components">
-        <figcaption>
-          SHRIMP's modular architecture links the web interface and planning backend with Isaac Sim,
-          scene perception, and controllers for the physical bimanual robot. Users can iterate on the
-          same structured plan across generation, simulation, and execution.
-        </figcaption>
+
       </figure>
     </div>
   </div>
@@ -352,8 +329,7 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="has-text-centered section-intro">
-      <p class="eyebrow">User study</p>
-      <h2 class="title is-3">Evaluated with 35 participants</h2>
+      <h2 class="title is-3">Evaluation</h2>
       <p class="lead">
         Participants used SHRIMP to plan tabletop kitchen tasks. The study examined whether iterative,
         simulation-backed refinement helps non-experts understand and shape a robot's behavior.
@@ -372,21 +348,21 @@
           <span class="icon" aria-hidden="true"><i class="fas fa-sliders-h"></i></span>
           <div>
             <h3>Greater perceived control</h3>
-            <p>Iterative revision gave participants more agency over how their instructions became robot behavior.</p>
+            <p>Iterative revision gave participants more control over how their instructions became robot behavior.</p>
           </div>
         </div>
         <div class="finding-card">
           <span class="icon" aria-hidden="true"><i class="fas fa-eye"></i></span>
           <div>
             <h3>Enhanced transparency</h3>
-            <p>Exposing the hierarchical plan and its simulated outcome helped participants inspect the robot's intended actions before execution.</p>
+            <p>Exposing the hierarchical plan and its simulated outcome helped participants inspect and understand the robot's intended actions before execution.</p>
           </div>
         </div>
       </div>
     </div>
     <p class="study-note">
-      These findings support simulation-driven refinement as a way to address ambiguity in
-      language-based robot programming while keeping final decisions with the user.
+These findings show that simulation-driven refinement can reduce ambiguity in language-based robot
+ programming while preserving user control over the final plan.
     </p>
   </div>
 </section>
