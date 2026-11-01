@@ -207,6 +207,56 @@ body {
   margin: 0 auto;
 }
 
+.system-demos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.system-demo {
+  margin: 0;
+  overflow: hidden;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.system-demo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.system-demo figcaption {
+  padding: 1.15rem 1.25rem 1.35rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.system-demo figcaption strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.system-demo-wide {
+  grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 768px) {
+  .system-demos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
 .study-summary {
   align-items: stretch;
 }
